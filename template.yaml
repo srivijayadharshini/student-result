@@ -4,22 +4,6 @@ Description: Student Result Management System Infrastructure
 
 Resources:
 
-  StudentAppInstance:
-    Type: AWS::EC2::Instance
-
-    Properties:
-      ImageId: ami-03f4878755434977f
-      InstanceType: t2.micro
-
-      SecurityGroups:
-        - !Ref StudentSecurityGroup
-
-      KeyName: my-keypair
-
-      Tags:
-        - Key: Name
-          Value: StudentResultServer
-
   StudentSecurityGroup:
     Type: AWS::EC2::SecurityGroup
 
@@ -43,6 +27,21 @@ Resources:
           ToPort: 5000
           CidrIp: 0.0.0.0/0
 
+  StudentAppInstance:
+    Type: AWS::EC2::Instance
+
+    Properties:
+
+      ImageId: ami-03f4878755434977f
+
+      InstanceType: t2.micro
+
+      SecurityGroupIds:
+        - !Ref StudentSecurityGroup
+
+      Tags:
+        - Key: Name
+          Value: StudentResultServer
 
 Outputs:
 
