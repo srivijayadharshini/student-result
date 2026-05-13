@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+
+  install:
+    runtime-versions:
+      nodejs: 18
+
+  pre_build:
+    commands:
+      - echo Installing frontend dependencies
+      - cd frontend
+      - npm install
+      - cd ..
+
+      - echo Installing backend dependencies
+      - cd backend
+      - npm install
+      - cd ..
+
+  build:
+    commands:
+      - echo Building React frontend
+      - cd frontend
+      - npm run build
+      - cd ..
+
+artifacts:
+  files:
+    - '**/*'
