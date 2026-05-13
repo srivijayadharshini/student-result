@@ -34,7 +34,7 @@ Resources:
 
       ImageId: ami-03f4878755434977f
 
-      InstanceType: t2.micro
+      InstanceType: t3.micro
 
       SecurityGroupIds:
         - !Ref StudentSecurityGroup
